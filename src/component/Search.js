@@ -1,4 +1,5 @@
 import React from 'react'
+import Staertrating from './Staertrating'
 
 const Search = () => {
     return (
@@ -8,7 +9,7 @@ const Search = () => {
          <div>
             <input type = "text" name="" value="" className="inp"
             />
-            <p> rate </p>
+            <Staertrating/>
          </div>
 
         </div>

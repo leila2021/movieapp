@@ -8,9 +8,10 @@ import AddMovie from './component/AddMovie';
 
 function  App() {
   const [ movies, setmovies] = useState(movieData)
+  const [state, setstate] = useState("")
   const handleadd=(newmovie) => {
-    setmovies([...movies,newmovie ])
-  }
+    setmovies([...movies,newmovie ])}
+  
   return (
 
    <div className = "app">

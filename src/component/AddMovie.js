@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
+import Staertrating from './Staertrating';
 const AddMovie = ({handleadd}) => {
     const [form,setForm] = useState(
         {name:"",
@@ -21,15 +22,30 @@ const AddMovie = ({handleadd}) => {
       };
       Modal.setAppElement('#root');
       const handlsubmit=(e) => {
+        e.preventDefault();
           let newmovie = {
          ...form, id:Math.random()
         }
          handleadd(newmovie) 
-         
+         setForm({name:"",
+         date:"",
+         image:"",
+         rating:1,
+ 
+         }
+
+         )
+         closeModal();
      }
      const handlechage = (e) => {
      setForm({...form,[e.target.name]:e.target.value })}
+
+const handlerate=(newrate) => {
+  setForm({...form,rating:newrate})
+}
   const [modalIsOpen, setIsOpen] = useState(false);
+
+
 
   function openModal() {
     setIsOpen(true);
@@ -50,19 +66,18 @@ const AddMovie = ({handleadd}) => {
         style={customStyles}
         
       >
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form onSubmit={handlsubmit } >
+        <div> <h1>add movie</h1> </div>
+        <form onSubmit={handlsubmit} >
          <label for="" >name movies </label>
-         <input type ="text" name="name"onChange={ handlechage } />
+         <input type ="text" name="name" onChange={ handlechage } required />
          <label for="" >image </label>
-         <input type ="url" name="image" />
+         <input type ="url" name="image" onChange={ handlechage } required />
          <label for="" >Date </label>
-         <input type ="date" name="date" />
+         <input type ="date" name="date" onChange={ handlechage } required />
          <label for="" >rate </label>
-         <p> rate </p>
+         <Staertrating rate= {form.rating} handlerate= {handlerate} />
           <button className="btn btn-primary" >add</button>
-          <button className="btn btn-danger" onClick={openModal}>cancel</button>
+          <button className="btn btn-danger" onClick={closeModal}>cancel</button>
         </form>
       </Modal>
         </div>
