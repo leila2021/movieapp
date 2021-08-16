@@ -6,6 +6,8 @@ const AddMovie = ({handleadd}) => {
         {name:"",
         date:"",
         image:"",
+        desc:"",
+        trailer:"",
         rating:1,
 
         }
@@ -30,6 +32,8 @@ const AddMovie = ({handleadd}) => {
          setForm({name:"",
          date:"",
          image:"",
+         desc:"",
+        trailer:"",
          rating:1,
  
          }
@@ -72,6 +76,10 @@ const handlerate=(newrate) => {
          <input type ="text" name="name" onChange={ handlechage } required />
          <label for="" >image </label>
          <input type ="url" name="image" onChange={ handlechage } required />
+         <label for="" >Description </label>
+         <input type ="text" name="desc" onChange={ handlechage } required />
+         <label for="" >Trailer</label>
+         <input type ="url" name="trailer" onChange={ handlechage } required />
          <label for="" >Date </label>
          <input type ="date" name="date" onChange={ handlechage } required />
          <label for="" >rate </label>
